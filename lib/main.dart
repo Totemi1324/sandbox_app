@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(MyApp());
-}
+void main(List<String> args) => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void onAnswerPressed() {
-    print("Answer chosen");
+    questionIndex++;
+    print(questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
+    var questionList = [
+      "What's your Hogwarts House?",
+      "Which animal does your Patronus embody?",
+      "What wood is your wand made of?",
+      "Of what material consists the core of your wand?",
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -18,7 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text("The question!"),
+            Text(
+              questionList[questionIndex],
+            ),
             ElevatedButton(
               onPressed: onAnswerPressed,
               child: const Text("Answer 1"),
