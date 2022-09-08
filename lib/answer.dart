@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
+  final String answerText;
   final VoidCallback handler;
   final Gradient backgroundGradient;
 
-  const Answer(this.handler,
+  const Answer(this.answerText, this.handler,
       {super.key,
       this.backgroundGradient =
           const LinearGradient(colors: [Colors.cyan, Colors.indigo])});
@@ -24,7 +25,7 @@ class Answer extends StatelessWidget {
       child: MaterialButton(
         onPressed: handler,
         shape: RoundedRectangleBorder(borderRadius: borderRadius),
-        child: const Text("Answer 1", style: TextStyle(color: Colors.white),),
+        child: Text(answerText, style: TextStyle(color: Colors.white),),
       ),
     );
   }

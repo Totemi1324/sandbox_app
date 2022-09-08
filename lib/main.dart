@@ -26,10 +26,31 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questionList = [
-      "What's your Hogwarts House?",
-      "Which animal does your Patronus embody?",
-      "What wood is your wand made of?",
-      "Of what material consists the core of your wand?",
+      {
+        "question_text": "What's your Hogwarts House?",
+        "question_answers": [
+          "Gryffindor",
+          "Ravenclaw",
+          "Hufflepuff",
+          "Slytherin"
+        ]
+      },
+      {
+        "question_text": "Which animal does your Patronus embody?",
+        "question_answers": ["Fox", "Eagle", "Wolf"]
+      },
+      {
+        "question_text": "What wood is your wand made of?",
+        "question_answers": ["Chestnut", "Beech", "Cypress", "Maple"]
+      },
+      {
+        "question_text": "Of what material consists the core of your wand?",
+        "question_answers": [
+          "Unicorn hair",
+          "Dragon heart string",
+          "Phoenix feather"
+        ]
+      },
     ];
 
     return MaterialApp(
@@ -40,11 +61,9 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(
-              questionList[_questionIndex],
+              questionList[_questionIndex]["question_text"] as String,
             ),
-            Answer(_onAnswerPressed),
-            Answer(_onAnswerPressed),
-            Answer(_onAnswerPressed),
+            ...(questionList[_questionIndex]["question_answers"] as List<String>).map((e) => Answer(e, _onAnswerPressed)).toList()
           ],
         ),
       ),
