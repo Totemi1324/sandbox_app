@@ -25,7 +25,13 @@ class Answer extends StatelessWidget {
       child: MaterialButton(
         onPressed: handler,
         shape: RoundedRectangleBorder(borderRadius: borderRadius),
-        child: Text(answerText, style: TextStyle(color: Colors.white),),
+        child: Text(
+          answerText.toUpperCase(),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
       ),
     );
   }
