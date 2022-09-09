@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main(List<String> args) => runApp(const MyApp());
 
@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final questionList = const [
+  final _questionList = const [
     {
       "question_text": "What's your Hogwarts House?",
       "question_answers": ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"]
@@ -42,10 +42,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex++;
     });
-    print(_questionIndex);
-    if (_questionIndex < questionList.length) {
-      
-    }
   }
 
   @override
@@ -55,17 +51,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text("My first app"),
         ),
-        body: Column(
-          children: [
-            Question(
-              questionList[_questionIndex]["question_text"] as String,
-            ),
-            ...(questionList[_questionIndex]["question_answers"]
-                    as List<String>)
-                .map((e) => Answer(e, _onAnswerPressed))
-                .toList()
-          ],
-        ),
+        body: _questionIndex < _questionList.length
+            ? Quiz(
+                questionList: _questionList,
+                questionIndex: _questionIndex,
+                onAnswerPressed: _onAnswerPressed,
+              )
+            : const Result(),
       ),
     );
   }
