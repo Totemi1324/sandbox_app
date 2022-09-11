@@ -12,7 +12,7 @@ class Answer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(7);
+    final borderRadius = BorderRadius.circular(18);
 
     return Container(
       width: double.infinity,

@@ -27,28 +27,26 @@ class Result extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.all(10),
-      child: Center(
-        child: Column(
-          children: [
-            Text(
-              resultPhrase,
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+      child: Column(
+        children: [
+          Text(
+            resultPhrase,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
             ),
-            OutlinedButton(
-              onPressed: resetFunction,
-              child: const Text(
-                'Restart',
-                style: TextStyle(
-                  color: Colors.cyan,
-                ),
+            textAlign: TextAlign.center,
+          ),
+          OutlinedButton(
+            onPressed: resetFunction,
+            child: const Text(
+              'Restart',
+              style: TextStyle(
+                color: Colors.cyan,
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
