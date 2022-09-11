@@ -22,9 +22,14 @@ class Answer extends StatelessWidget {
         borderRadius: borderRadius,
       ),
       margin: const EdgeInsets.all(10),
-      child: MaterialButton(
+      child: TextButton(
         onPressed: handler,
-        shape: RoundedRectangleBorder(borderRadius: borderRadius),
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: borderRadius,
+          ),
+        )),
         child: Text(
           answerText.toUpperCase(),
           style: const TextStyle(

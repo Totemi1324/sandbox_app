@@ -38,7 +38,7 @@ class Result extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            MaterialButton(
+            OutlinedButton(
               onPressed: resetFunction,
               child: const Text(
                 'Restart',
